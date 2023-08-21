@@ -10,7 +10,9 @@ const Stats = (
   incorrectChars,
   missedChars,
   extraChars,
-graphData}
+  graphData,
+  resetTest,
+}
 ) => {
     // we are here avoiding the redendent data of graph we use Set() fn this is in build class and store the data in it 
     // in form of timeSet and make newGraph variable then filter the 1st data and doest not take repeat data and aviod
@@ -101,6 +103,7 @@ graphData}
           <div className="subtitle">{accuracy}</div>
           <div className="title">Characters</div>
           <div className="subtitle">{correctChars}/{incorrectChars}/{missedChars}/{extraChars}</div>
+          <div onClick={resetTest} className='restart'>Restart</div> 
         </div>
         <div className="right-stats">{/* graph is here */}
               <Graph graphData={newGraph}/>

@@ -71,16 +71,37 @@ const [wordsArray, setWordsArray] = useState(()=> generate(50));
         setWordsArray(generate(50));
         inputFocus();
         resetWordSpanRefClassName();
+        setCorrectChars(0);
+        setIncorrectChars(0);
+        setMissedChars(0);
+        setExtraChars(0);
+        calculateWPM();
+        calculateAcc();
+        setCorrectWords(0);
+        setCurrWordIndex(0);
+        setCurrCharIndex(0);
   }
 
   //to make reset cursor and hover effect.
   const resetWordSpanRefClassName = () => {
-    wordsSpanRef.map((i) => {
-      Array.from(i.current.childNodes).map((j) => {
-        j.className = "";
+    // wordsSpanRef.forEach((i) => {
+    //   Array.from(i.current.childNodes).map((j) => {
+    //     j.className = "";
+    //   });
+    // });
+    // wordsSpanRef[0].current.childNodes[0].className = "current";
+    wordsSpanRef.forEach(i=>{
+      if (i.current !== null) {
+      Array.from(i.current.childNodes).map((j)=>{
+        j.className=" ";
       });
-    });
-    wordsSpanRef[0].current.childNodes[0].className = "current";
+      if(i.current.childNodes.length > 0)
+      {
+        wordsSpanRef[0].current.childNodes[0].className='current';
+      }
+    }
+  })
+ 
   };
 
 
@@ -162,7 +183,7 @@ const [wordsArray, setWordsArray] = useState(()=> generate(50));
     return;
   }
     
-    if(e.key === allCurrChars[currCharIndex]?.innerText){
+    if(e.key === allCurrChars[currCharIndex].innerText){
       // console.log("correct", '48 wali line mai ? lagaya hai') 
       allCurrChars[currCharIndex].className = 'correct';
       setCorrectChars(correctChars+1);
@@ -231,8 +252,8 @@ const [wordsArray, setWordsArray] = useState(()=> generate(50));
                     wordsArray.map((word,index)=>(
                         <span className='word' ref={wordsSpanRef[index]}>
                             {
-                                word.split('').map(char=>(
-                                    <span>{char}</span>
+                                word.split('').map((char,charIndex)=>(
+                                    <span key={charIndex}>{char}</span>
                                 ))}
                         </span>
                     ))
