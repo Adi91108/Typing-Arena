@@ -4,7 +4,6 @@ const errorMapping={
     'auth/email-already-in-use':"Email already in use",
     'auth/weak-password':"Password must be 6 or more characters long", 
     'auth/unknown':"Please try again later",
-
 }
 export default errorMapping;
 // this is created for error handling purpose to rectify and provide diffnt error encountered by user while using website.
