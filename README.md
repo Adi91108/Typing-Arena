@@ -5,7 +5,7 @@
 
 ## 📚 Description
 
-**TypeMaster** is a responsive and engaging Typing Speed Test web application built with **ReactJS**, **Material UI**, **Firebase**, and a **Custom API** for generating text prompts. It offers users a platform to assess, track, and improve their typing speed and accuracy over time. Users can log in, take tests, and view their progress history through a secure and personalized experience.
+**Typing Arena** is a responsive and engaging Typing Speed Test web application built with **ReactJS**, **Material UI**, **Firebase**, and a **Custom API** for generating text prompts. It offers users a platform to assess, track, and improve their typing speed and accuracy over time. Users can log in, take tests, and view their progress history through a secure and personalized experience.
 
 ---
 
